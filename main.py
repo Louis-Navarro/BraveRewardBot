@@ -47,12 +47,18 @@ class All:
 
 
 if __name__ == '__main__':
-    if sys.platform == 'linux':
+    plat = sys.platform
+
+    if platform == 'linux':
         bbox = (2644, 50, 2672, 82)
         fp = 'example_linux.png'
 
-    else:
-        print('Only linux is supported at the moment')
+    elif platform in ('win32', 'cygin'):
+        bbox = (1710, 1237, 1734, 1261)
+        fp = 'example_win.png'
+
+    elif platform == 'darwin':
+        print('Mac OSX is not supported at the moment')
 
     main = All(bbox, fp=fp)
     main.loop(sleep=600)
