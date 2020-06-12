@@ -54,7 +54,7 @@ class All:
 
 
 if __name__ == '__main__':
-    plat = sys.platform
+    platform = sys.platform
 
     if platform == 'linux':
         bbox = (2644, 50, 2672, 82)
