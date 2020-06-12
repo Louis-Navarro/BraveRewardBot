@@ -38,8 +38,8 @@ class All:
         while 1:
             self.NUM_LOOPS += 1
 
-            print(f'Starting loop #{self.NUM_LOOPS}', end='\r')
-            time.sleep(sleep)
+            for _ in trange(sleep, desc=f'Loop #{self.NUM_LOOPS}', leave=False):
+                time.sleep(1)
 
             pyautogui.scroll(-10)
             time.sleep(1)
