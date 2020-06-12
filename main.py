@@ -9,6 +9,9 @@ import pyautogui
 
 
 class All:
+    NUM_LOOPS = 0
+
+
     def __init__(self, bbox, fp):
         self.bbox = bbox
         self.example = Image.open(fp)
@@ -33,6 +36,9 @@ class All:
 
     def loop(self, sleep=60):
         while 1:
+            self.NUM_LOOPS += 1
+
+            print(f'Starting loop #{self.NUM_LOOPS}', end='\r')
             time.sleep(sleep)
 
             pyautogui.scroll(-10)
@@ -41,6 +47,7 @@ class All:
             time.sleep(1)
         
             if self._check_notif():
+                print(f'\nGot notification at loop #{self.NUM_LOOPS}')
                 self._get_money()
 
             pyautogui.moveTo(2800, 500)
